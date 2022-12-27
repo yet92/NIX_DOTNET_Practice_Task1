@@ -89,7 +89,8 @@ namespace BuildingConsole.ConsoleInterface
                 Console.WriteLine("3 - Show buildings");
                 Console.WriteLine("4 - Find building");
                 Console.WriteLine("5 - Delete building");
-                Console.WriteLine("6 - Exit");
+                Console.WriteLine("6 - Demonstrate building behavior");
+                Console.WriteLine("7 - Exit");
 
                 Console.Write("Command: ");
 

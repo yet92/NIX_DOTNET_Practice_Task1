@@ -18,6 +18,7 @@ namespace BuildingConsole.ConsoleInterface
             PrintBuildings,
             FindBuilding,
             DeleteBuilding,
+            ObjectBehaviourDemonstration,
             Exit
         }
 
@@ -151,6 +152,28 @@ namespace BuildingConsole.ConsoleInterface
             }
         }
 
+        public void DemonstrateObjectBehavior()
+        {
+            Building building = new Building();
+            building.ConstructionDate = new DateOnly(2022, 1, 1);
+
+            Console.WriteLine("We have a building:");
+            appInterface.ShowBuilding(building);
+
+            Console.WriteLine("We can add or remove building floors");
+            Console.WriteLine("Add 3 floors(building.ChangeFloorsNumber(3))");
+            building.ChangeFloorsNumber(3);
+            appInterface.ShowBuilding(building);
+
+            Console.WriteLine("Remove 3 floors(building.ChangeFloorsNumber(-3))");
+            building.ChangeFloorsNumber(-3);
+            appInterface.ShowBuilding(building);
+
+            Console.WriteLine("We can complete construction(building.CompleteConstruction()");
+            building.CompleteConstruction();
+            appInterface.ShowBuilding(building);
+        }
+
         public void Start()
         {
             bool exit = false;
@@ -178,6 +201,10 @@ namespace BuildingConsole.ConsoleInterface
 
                     case (uint)MenuCommand.DeleteBuilding:
                         DeleteBuilding();
+                        break;
+
+                    case (uint)MenuCommand.ObjectBehaviourDemonstration:
+                        DemonstrateObjectBehavior();
                         break;
 
                     case (uint)MenuCommand.Exit:

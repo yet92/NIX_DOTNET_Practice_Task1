@@ -166,6 +166,7 @@ namespace BuildingConsole.ConsoleInterface
         {
             Console.WriteLine("---------------------------");
             Console.WriteLine(building);
+            Console.WriteLine(building.MainInfo);
             Console.WriteLine("---------------------------");
         }
 

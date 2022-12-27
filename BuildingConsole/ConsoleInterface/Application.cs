@@ -56,11 +56,11 @@ namespace BuildingConsole.ConsoleInterface
 
             Building building = new Building();
 
-            if (buildingType != null) building.type = (BuildingType)buildingType;
-            if (floorsNumber != null) building.floorsNumber = (uint)floorsNumber;
-            if (address != null && address.Length > 0) building.address = address;
-            if (square != null) building.square = (float)square;
-            if (constructionDate != null) building.constructionDate = (DateOnly)constructionDate;
+            if (buildingType != null) building.Type = (BuildingType)buildingType;
+            if (floorsNumber != null) building.FloorsNumber = (uint)floorsNumber;
+            if (address != null && address.Length > 0) building.Address = address;
+            if (square != null) building.Square = (float)square;
+            if (constructionDate != null) building.ConstructionDate = (DateOnly)constructionDate;
 
             buildings.Add(building);
         }
@@ -92,7 +92,7 @@ namespace BuildingConsole.ConsoleInterface
                     appInterface.ShowObjects(buildings.Find((building) =>
                     {
                         var regex = new Regex($"{address}");
-                        return regex.IsMatch(building.address);
+                        return regex.IsMatch(building.Address);
                     }));
 
                     break;
@@ -100,7 +100,7 @@ namespace BuildingConsole.ConsoleInterface
                     uint buildingType = (uint)appInterface.ReadBuildingType() - 1;
                     appInterface.ShowObjects(buildings.Find((building) =>
                     {
-                        return (uint)building.type == buildingType;
+                        return (uint)building.Type == buildingType;
                     }));
                     break;
             }
@@ -129,7 +129,7 @@ namespace BuildingConsole.ConsoleInterface
                 case DeleteParameter.Address:
                     Console.WriteLine("Enter address of building to delete");
                     string address = appInterface.ReadAddress();
-                    deletingBuildings = buildings.Find((building) => building.address == address);
+                    deletingBuildings = buildings.Find((building) => building.Address == address);
                     break;
             }
 

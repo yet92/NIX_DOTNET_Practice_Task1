@@ -10,15 +10,23 @@ namespace BuildingData.Models
     {
         public Guid Id { get; set; }
 
-        public BuildingType type = BuildingType.House;
-        public string? address = "Street";
-        public uint floorsNumber = 1;
-        public float square = 1.0f;
-        public DateOnly constructionDate = DateOnly.FromDateTime(DateTime.Now);
+        private BuildingType type = BuildingType.House;
+        private uint floorsNumber = 1;
+        private float square = 1.0f;
+        private DateOnly constructionDate = DateOnly.FromDateTime(DateTime.Now);
+
+        public BuildingType Type { get => type; set { type = value; } }
+        public string? Address { get; set; } = "Street";
+        public uint FloorsNumber { get => floorsNumber; set { floorsNumber = value; } }
+        public float Square { get => square; set { square = value; } }
+        public DateOnly ConstructionDate { get => constructionDate; set { constructionDate = value; } }
+
+        public string MainInfo { get => $"Building on {Address} has {FloorsNumber} floors and occupies an area of {Square} square meters"; }
+
 
         public override string ToString()
         {
-            return $"id: {Id.ToString("N")}\ntype: {type}\naddress: {address}\nfloors number: {floorsNumber}\nsquare: {square}\nconstruction date: {constructionDate}";
+            return $"id: {Id.ToString("N")}\ntype: {type}\naddress: {Address}\nfloors number: {floorsNumber}\nsquare: {square}\nconstruction date: {constructionDate}";
         }
 
         public void CompleteConstruction()

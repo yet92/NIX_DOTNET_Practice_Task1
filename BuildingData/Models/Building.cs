@@ -17,7 +17,7 @@ namespace BuildingData.Models
 
         public BuildingType Type { get => type; set { type = value; } }
         public string? Address { get; set; } = "Street";
-        public uint FloorsNumber { get => floorsNumber; set { floorsNumber = value; } }
+        public uint FloorsNumber { get => floorsNumber; private set { floorsNumber = value; } }
         public float Square { get => square; set { square = value; } }
         public DateOnly ConstructionDate { get => constructionDate; set { constructionDate = value; } }
 
@@ -41,7 +41,7 @@ namespace BuildingData.Models
                 throw new ArgumentException("Trying to subtract too many floors");
             }
 
-            floorsNumber = (uint)(floorsNumber - delta);
+            floorsNumber = (uint)(floorsNumber + delta);
         }
     }
 }

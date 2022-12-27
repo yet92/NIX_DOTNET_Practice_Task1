@@ -57,7 +57,7 @@ namespace BuildingConsole.ConsoleInterface
             Building building = new Building();
 
             if (buildingType != null) building.Type = (BuildingType)buildingType;
-            if (floorsNumber != null) building.FloorsNumber = (uint)floorsNumber;
+            if (floorsNumber != null) building.ChangeFloorsNumber((uint)floorsNumber - 1);
             if (address != null && address.Length > 0) building.Address = address;
             if (square != null) building.Square = (float)square;
             if (constructionDate != null) building.ConstructionDate = (DateOnly)constructionDate;

@@ -48,7 +48,7 @@ namespace BuildingConsole.ConsoleInterface
 
         private void AddBuilding()
         {
-            if (buildings.Count == buildings.MaxBuildings)
+            if (buildings.Count == buildings.MaxItems)
             {
                 appInterface.PrintError("The maximum number of buildings has been reached");
                 return;
@@ -130,7 +130,7 @@ namespace BuildingConsole.ConsoleInterface
                 case DeleteParameter.Address:
                     Console.WriteLine("Enter address of building to delete");
                     string address = appInterface.ReadAddress();
-                    deletingBuildings = buildings.Find((building) => building.Address == address);
+                    deletingBuildings = buildings.Find((building) => building.Address == address).ToList();
                     break;
             }
 
@@ -181,33 +181,33 @@ namespace BuildingConsole.ConsoleInterface
             while (!exit)
             {
 
-                switch (appInterface.ReadMenuCommand())
+                switch ((MenuCommand)appInterface.ReadMenuCommand())
                 {
-                    case (uint)MenuCommand.AddBuilding:
+                    case MenuCommand.AddBuilding:
                         AddBuilding();
                         break;
 
-                    case (uint)MenuCommand.EditMaxBuildings:
+                    case MenuCommand.EditMaxBuildings:
                         EditMaxBuildings();
                         break;
 
-                    case (uint)MenuCommand.PrintBuildings:
+                    case MenuCommand.PrintBuildings:
                         PrintBuildings();
                         break;
 
-                    case (uint)MenuCommand.FindBuilding:
+                    case MenuCommand.FindBuilding:
                         FindBuilding();
                         break;
 
-                    case (uint)MenuCommand.DeleteBuilding:
+                    case MenuCommand.DeleteBuilding:
                         DeleteBuilding();
                         break;
 
-                    case (uint)MenuCommand.ObjectBehaviourDemonstration:
+                    case MenuCommand.ObjectBehaviourDemonstration:
                         DemonstrateObjectBehavior();
                         break;
 
-                    case (uint)MenuCommand.Exit:
+                    case MenuCommand.Exit:
                         exit = true;
                         break;
                 }

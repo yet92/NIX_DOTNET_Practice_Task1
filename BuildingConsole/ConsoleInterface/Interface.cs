@@ -153,7 +153,7 @@ namespace BuildingConsole.ConsoleInterface
             constructionDate = ReadDate(false);
         }
 
-        public void ShowObjects(List<Building> buildings)
+        public void ShowObjects(IEnumerable<Building> buildings)
         {
 
             foreach (var building in buildings)
